@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { get } from 'utils/requests';
 
 import { Counter } from 'components/counter/Counter';
@@ -9,6 +9,8 @@ import styles from 'components/App.module.scss';
 
 function App() {
 
+  const [response, setResponse] = useState('')
+
   useEffect(() => {
 
     /**
@@ -18,7 +20,7 @@ function App() {
      */
     setTimeout(() => get(
       'example', // Route
-      (response) => alert(response), // Response callback
+      (response) => setResponse(response), // Response callback
       (error) => console.error(error) // Error callback
     ), 3000);
   }, []);
@@ -29,6 +31,7 @@ function App() {
 
       <div className={ styles.app }>
         <header className={ styles['app-header'] }>
+          {response}
           <img src={ logo } className={ styles['app-logo'] } alt="logo" />
           <Counter />
           <p>
