@@ -25,7 +25,7 @@ class Builder {
   buildPython = () => {
     console.log('Creating Python distribution files...');
 
-    const app = 'app.py';
+    const app = 'py/crud.py';
     const icon = './public/favicon.ico';
 
     const options = [

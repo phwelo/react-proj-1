@@ -2,6 +2,7 @@ import sys
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
+
 app = Flask(__name__)
 app_config = {"host": "0.0.0.0", "port": sys.argv[1]}
 
@@ -29,9 +30,16 @@ if "app.py" in sys.argv[0]:
 # Remove and replace with your own
 @app.route("/example")
 def example():
-
+  print("poop")
   # See /src/components/App.js for frontend call
   return jsonify("Fartmaster in tha house! Learn more in /app.py & /src/components/App.js")
+
+@app.route("/api/v1/songs")
+def example2():
+
+  # See /src/components/App.js for frontend call
+  return jsonify("doesn't really matter anymore")
+
 
 
 """

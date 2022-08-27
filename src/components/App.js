@@ -1,24 +1,25 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { get } from 'utils/requests';
 
 import { Counter } from 'components/counter/Counter';
 import Titlebar from 'components/titlebar/Titlebar';
 
-import logo from 'logo.svg';
 import styles from 'components/App.module.scss';
 
 function App() {
+
+  const [response, setResponse] = useState('')
 
   useEffect(() => {
 
     /**
      * Example call to Flask
      * @see /src/utils/requests.js
-     * @see /app.py
+     * @see /py/crud.py
      */
     setTimeout(() => get(
-      'example', // Route
-      (response) => alert(response), // Response callback
+      'api/v1/songs', // Route
+      (response) => setResponse(response), // Response callback
       (error) => console.error(error) // Error callback
     ), 3000);
   }, []);
@@ -29,7 +30,7 @@ function App() {
 
       <div className={ styles.app }>
         <header className={ styles['app-header'] }>
-          <img src={ logo } className={ styles['app-logo'] } alt="logo" />
+          {JSON.stringify(response)}
           <Counter />
           <p>
             Edit
