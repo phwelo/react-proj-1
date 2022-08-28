@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { get } from 'utils/requests';
 
-import { Counter } from 'components/counter/Counter';
 import Titlebar from 'components/titlebar/Titlebar';
 
 import styles from 'components/App.module.scss';
@@ -30,54 +29,19 @@ function App() {
 
       <div className={ styles.app }>
         <header className={ styles['app-header'] }>
-          {JSON.stringify(response)}
-          <Counter />
+          /api/v1/songs
           <p>
-            Edit
-            {' '}
-            <code>src/App.js</code>
-            {' '}
-            and save to reload.
+            {JSON.stringify(response)}
           </p>
-          <span>
-            <span>Fart </span>
-            <a
-              className={ styles['app-link'] }
-              href="https://reactjs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React
-            </a>
-            <span>, </span>
-            <a
-              className={ styles['app-link'] }
-              href="https://redux.js.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Redux
-            </a>
-            <span>, </span>
-            <a
-              className={ styles['app-link'] }
-              href="https://redux-toolkit.js.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Redux Toolkit
-            </a>
-            ,
-            <span> and </span>
-            <a
-              className={ styles['app-link'] }
-              href="https://react-redux.js.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React Redux
-            </a>
-          </span>
+          <p>
+            <a href="https://github.com/santomegonzalo/react-electron-titlebar">seems like a nice title bar</a><br/>
+            <a href="https://www.npmjs.com/package/react-pro-sidebar">sidebar idea</a><br/>
+            <a href="https://fortunar.github.io/react-sidemenu/#item3">if flexibility is needed in sidebar</a><br/>
+            <a href="https://uptick.github.io/react-keyed-file-browser/">file browser widget</a><br/>
+            <a href="https://react-ui.io/components/popover">popover can be used to display chord fingerings</a><br/>
+            <a href="https://github.com/aliustaoglu/react-js-guitar-chords#readme">get chord fingerings</a><br/>
+
+          </p>
         </header>
       </div>
     </Fragment>
