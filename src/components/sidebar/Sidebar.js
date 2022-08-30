@@ -1,12 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { FaGem, FaHeart } from "react-icons/fa";
+import { FaMusic, FaSearch, FaHeart,FaListUl } from "react-icons/fa";
 
 function Sidebar() {
+
+
+  const displayModal = () =>{
+    alert('should we display search as modal?')
+  }
+
+  const [collapsed, setCollapsed] = useState(true)
+  const toggleCollapsed = () => setCollapsed(value => !value);
+
   return (
-    <ProSidebar>
+    <ProSidebar collapsed={collapsed}>
       <Menu iconShape="square">
-        <MenuItem icon={<FaGem />}>Dashboard</MenuItem>
+        <MenuItem icon={<FaMusic />}>
+          <a href="/api/v1/songs">
+            Songs
+          </a>
+        </MenuItem>
+        <MenuItem icon={<FaSearch />} onClick={()=> displayModal()}>
+          Search
+        </MenuItem>
         <SubMenu title="Dev Links" icon={<FaHeart />}>
           <MenuItem>
             <a
@@ -62,6 +78,8 @@ function Sidebar() {
             </a>
           </MenuItem>
         </SubMenu>
+        <MenuItem icon={<FaListUl />} onClick={()=>{setCollapsed(prevCollapsed => !prevCollapsed)}}>
+        </MenuItem>
       </Menu>
     </ProSidebar>
   );

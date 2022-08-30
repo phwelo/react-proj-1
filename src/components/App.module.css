@@ -22,16 +22,28 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {
-    animation: app-logo-float infinite 3s ease-in-out;
+    -webkit-animation: app-logo-float infinite 3s ease-in-out;
+            animation: app-logo-float infinite 3s ease-in-out;
   }
 }
-
 .app-link {
   color: rgb(112, 76, 182);
 }
 
 .sidebar {
-  flex: 6
+  flex: 6;
+}
+
+@-webkit-keyframes app-logo-float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes app-logo-float {
@@ -39,9 +51,9 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
   100% {
-    transform: translateY(0px)
+    transform: translateY(0px);
   }
-}
+}/*# sourceMappingURL=App.module.css.map */
