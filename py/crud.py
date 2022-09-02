@@ -4,7 +4,7 @@ from search import get_songs_list as song_query
 from grab_song import Song
 import os, sys
 from flask_cors import CORS
-from json import loads as jl
+from json import loads as jl, dumps as jd
 
 app = Flask(__name__)
 app_config = {"host": "0.0.0.0", "port": sys.argv[1]}
@@ -22,9 +22,10 @@ def init():
   print("starting crud server...")
   os.makedirs(storage_path, exist_ok=True)
 
-def write_song(song):
-  with open(os.path.join(storage_path, song.id + ".json"), "w", encoding="utf-8") as f:
-    f.write(str(jsonify(song.__dict__)))
+def write_song(rsong):
+  with open(os.path.join(storage_path, rsong.id + ".json"), "w", encoding="utf-8") as f:
+    text = jd(rsong.__dict__)
+    f.write(text)
 
 @app.route('/')
 def hello_world():
