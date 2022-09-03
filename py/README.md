@@ -12,7 +12,7 @@ Search for a song:
   {
     "artist_id": 12085,
     "artist_name": "Wolf Parade",
-    "artist_url": "https://www.ultimate-guitar.com/artist/wolf_parade_12085",
+    "artist_url": "https://www.ug.com/artist/wolf_parade_12085",
     "date": "1129680001",
     "id": 264702,
     "part": "",
@@ -28,7 +28,7 @@ Search for a song:
     "song_name": "This Heart Is On Fire",
     "status": "approved",
     "tab_access_type": "public",
-    "tab_url": "https://tabs.ultimate-guitar.com/tab/wolf-parade/this-heart-is-on-fire-chords-264702",
+    "tab_url": "https://tabs.ug.com/tab/wolf-parade/this-heart-is-on-fire-chords-264702",
     "tonality_name": "",
     "tp_version": 0,
     "type": "Chords",
@@ -40,7 +40,7 @@ Search for a song:
   {
     "artist_id": 12085,
     "artist_name": "Wolf Parade",
-    "artist_url": "https://www.ultimate-guitar.com/artist/wolf_parade_12085",
+    "artist_url": "https://www.ug.com/artist/wolf_parade_12085",
     "date": "1129680001",
     "id": 1279705,
     "part": "",
@@ -56,7 +56,7 @@ Search for a song:
     "song_name": "This Heart Is On Fire",
     "status": "approved",
     "tab_access_type": "public",
-    "tab_url": "https://tabs.ultimate-guitar.com/tab/wolf-parade/this-heart-is-on-fire-ukulele-1279705",
+    "tab_url": "https://tabs.ug.com/tab/wolf-parade/this-heart-is-on-fire-ukulele-1279705",
     "tonality_name": "",
     "tp_version": 0,
     "type": "Ukulele Chords",
@@ -74,10 +74,10 @@ Download a song:
 ```
 
 ```
-curl localhost:5000/api/v1/download/https://tabs.ultimate-guitar.com/tab/wolf-parade/this-heart-is-on-fire-chords-264702
+curl localhost:5000/api/v1/download/https://tabs.ug.com/tab/wolf-parade/this-heart-is-on-fire-chords-264702
 {
   "id": "163955-12085",
-  "tab_url": "https://tabs.ultimate-guitar.com/tab/wolf-parade/this-heart-is-on-fire-chords-264702",
+  "tab_url": "https://tabs.ug.com/tab/wolf-parade/this-heart-is-on-fire-chords-264702",
   "artist_name": "Wolf Parade",
   "song_name": "This Heart Is On Fire",
   "tab_content": "[tab][ch]C[/ch]\r\nSometimes they rock and roll[/tab]\r\n[tab][ch]G[/ch]                                         [ch]Am[/ch]   [ch]F[/ch]\r\nSometimes they stay at home and it's just fine[/tab]\r\n[tab][ch]C[/ch]\r\nThis heart's on fire[/tab]\r\n[tab][ch]F[/ch]\r\nThis heart's on fire (2x)[/tab]\r\n\r\n\r\n[tab][ch]C[/ch]\r\nI am my mother's hen[/tab]\r\n[tab][ch]G[/ch]\r\nand left the body in the bed all day[/tab]\r\n[tab]               [ch]Am[/ch]     [ch]F[/ch]\r\nWe don't know what to do[/tab]\r\n[tab][ch]C[/ch]\r\nThis heart's on fire[/tab]\r\n[tab][ch]F[/ch]\r\nThis heart's on fire (2x)[/tab]\r\n\r\n[tab][ch]C[/ch]\r\nA thousand made-up loves[/tab]\r\n[tab][ch]G[/ch]                                                 [ch]Am[/ch]    [ch]F[/ch]\r\nWhat makes the sound of surf once you know you're alive?[/tab]\r\n[tab][ch]C[/ch]\r\nThis heart's on fire[/tab]\r\n[tab][ch]F[/ch]\r\nThis heart's on fire (2x)[/tab]\r\n\r\n\r\n[tab][ch]Am[/ch]                              [ch]F[/ch]\r\nIt's getting better all the time[/tab]\r\n[tab][ch]Am[/ch]                              [ch]F[/ch]\r\nIt's getting better all the time[/tab]\r\n\r\n[tab][ch]C[/ch]               [ch]F[/ch]\r\nThis heart's on fire (4x)[/tab]\r\n\r\n[tab][ch]C[/ch]\r\nAnd you're my favourite thing[/tab]\r\n[tab][ch]G[/ch]\r\ntell it everywhere I go[/tab]\r\n[tab]        [ch]Am[/ch]           [ch]F[/ch]\r\nI don't know what to do[/tab]\r\n[tab][ch]C[/ch]\r\nThis heart's on fire[/tab]\r\n[tab][ch]F[/ch]\r\nThis heart's on fire (2x)[/tab]\r\n\r\n[tab][ch]C[/ch]\r\nSometimes they rock and roll[/tab]\r\n[tab][ch]G[/ch]                                 [ch]Am[/ch]   [ch]F[/ch]\r\nI'd rather stay at home in real life[/tab]\r\n[tab][ch]C[/ch]\r\nThis heart's on fire[/tab]\r\n[tab][ch]F[/ch]\r\nThis heart's on fire (2x)[/tab]\r\n\r\n[tab][ch]Am[/ch]                          [ch]F[/ch]\r\nIt's getting better all the time (4x)[/tab]\r\n\r\n[tab][ch]C[/ch]               [ch]F[/ch]\r\nThis heart's on fire (8x)[/tab]",
