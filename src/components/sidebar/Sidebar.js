@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader } from "react-pro-sidebar";
 import { FaMusic, FaSearch, FaHeart,FaListUl } from "react-icons/fa";
 
 function Sidebar() {

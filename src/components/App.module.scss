@@ -1,14 +1,19 @@
 .app {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  padding-left: 90px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  padding-top: 10px;
+  // text-align: left;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
   height: 100%;
-  padding: 0;
+  // padding: 0;
   position: fixed;
   top: 32px;
   left: 0;
-  width: 90vw;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .main {
@@ -31,17 +36,8 @@
 }
 
 .sidebar {
-  flex: 6
-}
-
-@keyframes app-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px)
-  }
-  100% {
-    transform: translateY(0px)
-  }
+  flex: 6;
+  position:fixed;
+  top: 32;
+  left: 0;
 }

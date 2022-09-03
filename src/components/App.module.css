@@ -11,8 +11,22 @@
   width: 90vw;
 }
 
+.listdiv {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  height: 100%;
+  padding: 0;
+  position: fixed;
+  top: 32px;
+  left: 0;
+  width: 90vw;
+}
+
 .main {
   flex-grow: 2;
+  overflow-y: scroll;
 }
 
 .app-logo {
