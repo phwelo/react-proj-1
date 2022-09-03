@@ -29,17 +29,18 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setResponse(SongSeedData)
+    setResponse(
+      SongSeedData
+      )
   }, []);
 
   const listItems = response.map((song) =>
   <a href={`api/v1/song/${song.id}`}>
     <Segment>
       <List.Item key={song.id}>
-        <List.Icon name='music' />
         <List.Content>
-          <List.Header>{song.song_name}</List.Header>
-          <List.Description>{song.artist_name} - id: {song.id}</List.Description>
+          <List.Header><h4><List.Icon name='music' />{song.song_name}</h4></List.Header>
+          <List.Description><List.Icon />Artist: {song.artist_name}</List.Description>
         </List.Content>
       </List.Item>
     </Segment>
