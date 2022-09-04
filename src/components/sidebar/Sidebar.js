@@ -28,6 +28,7 @@ function Sidebar() {
             <a
               href="https://github.com/santomegonzalo/react-electron-titlebar"
               target="_blank"
+              rel="noopener noreferrer"
             >
               seems like a nice title bar
             </a>
@@ -36,6 +37,7 @@ function Sidebar() {
             <a
               href="https://www.npmjs.com/package/react-pro-sidebar"
               target="_blank"
+              rel="noopener noreferrer"
             >
               sidebar idea
             </a>
@@ -44,6 +46,7 @@ function Sidebar() {
             <a
               href="https://fortunar.github.io/react-sidemenu/#item3"
               target="_blank"
+              rel="noopener noreferrer"
             >
               if flexibility is needed in sidebar
             </a>
@@ -52,12 +55,16 @@ function Sidebar() {
             <a
               href="https://uptick.github.io/react-keyed-file-browser/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               file browser widget
             </a>
           </MenuItem>
           <MenuItem>
-            <a href="https://react-ui.io/components/popover" target="_blank">
+            <a href="https://react-ui.io/components/popover"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
               popover can be used to display chord fingerings
             </a>
           </MenuItem>
@@ -65,6 +72,7 @@ function Sidebar() {
             <a
               href="https://uptick.github.io/react-keyed-file-browser/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               file browser widget
             </a>
@@ -73,6 +81,7 @@ function Sidebar() {
             <a
               href="https://github.com/aliustaoglu/react-js-guitar-chords#readme"
               target="_blank"
+              rel="noopener noreferrer"
             >
               get chord fingerings
             </a>
