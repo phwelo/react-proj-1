@@ -225,7 +225,7 @@ app.whenReady().then(async () => {
     await installExtensions(); // React, Redux devTools
     browserWindows.loadingWindow = new BrowserWindow({ frame: false });
     createLoadingWindow().then(() => createMainWindow(port));
-    spawn(`python py/crud.py ${port}`, { detached: true, shell: true, stdio: 'inherit' });
+    spawn(`python3 py/crud.py ${port}`, { detached: true, shell: true, stdio: 'inherit' });
   }
 
   /**
