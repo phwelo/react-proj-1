@@ -31,23 +31,25 @@ function App() {
     );
   }, []);
 
+  // return 
+
   function Hello(strthing) {
     console.dir(strthing)
-    return <Button variant="outlined">Activate Menu</Button>
+    return null
   }
 
   useEffect(() => {
     setResponse(SongSeedData)
   }, []);
 
-  const listItems = response.map((song) =>
-    <ListItem key={song.id} onClick={() => Hello(song.id)}>
-      {song.song_name} - {song.artist_name}
+  const listItems = response.map((song, index) =>
+    <ListItem key={index} onClick={() => Hello(song.id.toString())}>
+      <Button key={song.title}variant="outlined">Activate Menu</Button>
     </ListItem>
   );
 
   const songList = <List className={styles.main}>
-      <h1 key="na" className={styles.songheader}>Songs</h1>
+      <h1 className={styles.songheader}>Songs</h1>
       <Divider />
       {listItems}
     </List>
