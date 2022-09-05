@@ -31,7 +31,7 @@ const Titlebar = () => {
   return (
     <section className={ styles.titlebar }>
       <div>
-        <img src={ favicon } alt="favicon" />
+        <a href="#"><img src={ favicon } alt="favicon" /></a>
         <span id="electron-window-title-text">{ document.title }</span>
       </div>
 

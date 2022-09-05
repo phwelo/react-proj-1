@@ -3,8 +3,13 @@ import { get } from "utils/requests";
 import Titlebar from "components/titlebar/Titlebar";
 import "react-pro-sidebar/dist/css/styles.css";
 import styles from "components/App.module.scss";
-import Sidebar from "./sidebar/Sidebar";
 import SongSeedData from 'SongSeedData'
+import { CssVarsProvider } from '@mui/joy/styles';
+import List from '@mui/joy/List';
+import ListItem from '@mui/joy/ListItem';
+import { slide as Sidebar } from 'react-burger-menu'
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
 
 function App() {
   const [response, setResponse] = useState([]);
@@ -26,27 +31,36 @@ function App() {
     );
   }, []);
 
+  function Hello(strthing) {
+    console.dir(strthing)
+    return <Button variant="outlined">Activate Menu</Button>
+  }
+
   useEffect(() => {
     setResponse(SongSeedData)
   }, []);
 
   const listItems = response.map((song) =>
-    <li key={song.id}>{song.song_name}</li>
+    <ListItem key={song.id} onClick={() => Hello(song.id)}>
+      {song.song_name} - {song.artist_name}
+    </ListItem>
   );
 
+  const songList = <List className={styles.main}>
+      <h1 key="na" className={styles.songheader}>Songs</h1>
+      <Divider />
+      {listItems}
+    </List>
 
   return (
     <>
-      
-      <div className={styles.app}>
-      <Titlebar/>
-      <Sidebar />
-      < div className={styles.main}>
-      <ul>{listItems}</ul>
-      </div >
-
-      
-      </div>
+        <div className={styles.app}>
+          <Titlebar/>
+          <Sidebar isOpen={ true }>
+            {songList}
+          </Sidebar>
+          <Hello/>
+        </div>
     </>
   );
 }
