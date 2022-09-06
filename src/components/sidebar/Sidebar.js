@@ -1,96 +1,97 @@
-import React, {useState} from "react";
-import { ProSidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
-import { FaMusic, FaSearch, FaHeart,FaListUl } from "react-icons/fa";
+import React, { useState } from "react";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { get } from "utils/requests";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ShareIcon from '@mui/icons-material/Share';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SaveIcon from '@mui/icons-material/Save';
 
-function Sidebar() {
 
 
-  const displayModal = () =>{
-    alert('should we display search as modal?')
+
+function Sidebar(props) {
+
+  const [response, setResponse] = useState([]);
+
+  function ListSongs({songs}) {
+
+
+  
+  
+    function loadSong(song) {
+      console.log("getting song id " + song.id.toString() )
+      var path = 'api/v1/song/163955-12085'
+  
+      setTimeout(
+        () =>
+          get(
+            path, // Route
+            (response) => setResponse(response), // Response callback
+            (error) => console.error(error) // Error callback
+          ),
+        3000
+      );
+  
+    }
+    
+  
+    {console.log("songs")}
+    return(songs.map((song) => <div onClick={() => loadSong(song) }><ListItem onClick={loadSong(song)} key={song.id}>{song.song_name} </ListItem></div>))
+    
+  }
+  
+  function SearchBox() {
+    return(
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+  
+      </Box>
+    )
+  }
+  
+  function BottomBar() {
+    return (
+      <>
+          <ShareIcon></ShareIcon>
+      <EditIcon></EditIcon>
+      <DeleteIcon></DeleteIcon>
+      <SaveIcon></SaveIcon>
+      </>
+  
+    )
   }
 
-  const [collapsed, setCollapsed] = useState(true)
-  const toggleCollapsed = () => setCollapsed(value => !value);
 
+
+  {console.log(props.songs)}
   return (
-    <ProSidebar collapsed={collapsed}>
-      <Menu iconShape="square">
-        <MenuItem icon={<FaMusic />}>
-          <a href="/api/v1/songs">
-            Songs
-          </a>
-        </MenuItem>
-        <MenuItem icon={<FaSearch />} onClick={()=> displayModal()}>
-          Search
-        </MenuItem>
-        <SubMenu title="Dev Links" icon={<FaHeart />}>
-          <MenuItem>
-            <a
-              href="https://github.com/santomegonzalo/react-electron-titlebar"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              seems like a nice title bar
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="https://www.npmjs.com/package/react-pro-sidebar"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              sidebar idea
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="https://fortunar.github.io/react-sidemenu/#item3"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              if flexibility is needed in sidebar
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="https://uptick.github.io/react-keyed-file-browser/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              file browser widget
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a href="https://react-ui.io/components/popover"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-              popover can be used to display chord fingerings
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="https://uptick.github.io/react-keyed-file-browser/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              file browser widget
-            </a>
-          </MenuItem>
-          <MenuItem>
-            <a
-              href="https://github.com/aliustaoglu/react-js-guitar-chords#readme"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              get chord fingerings
-            </a>
-          </MenuItem>
-        </SubMenu>
-        <MenuItem icon={<FaListUl />} onClick={()=>{setCollapsed(prevCollapsed => !prevCollapsed)}}>
-        </MenuItem>
-      </Menu>
-    </ProSidebar>
+
+    <>
+  <SearchBox></SearchBox>
+      {props.songs.length > 0 ? (
+        <>
+        <List>
+          <ListSongs songs={props.songs}></ListSongs>
+          <BottomBar></BottomBar>
+        </List>
+        <div>
+          {JSON.stringify(response)}
+          </div>
+          </>
+      ) : (
+        <>what</>
+      )}
+    </>
   );
 }
 
