@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { get } from "utils/requests";
 import Titlebar from "components/titlebar/Titlebar";
-import "react-pro-sidebar/dist/css/styles.css";
 import styles from "components/App.module.scss";
-import Sidebar from "./sidebar/Sidebar";
-import TabBox from './tabbox/TabBox'
-import SongSeedData from "SongSeedData";
+import Main from "./main/Main";
 
 function App() {
   const [response, setResponse] = useState([]);
@@ -28,16 +25,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setResponse(SongSeedData);
+    setResponse(response);
   }, []);
 
   return (
     <>
       <div className={styles.app}>
         <Titlebar />
-        <Sidebar songs={response} />
-        <TabBox/>
-        <div className={styles.main}></div>
+        <Main songs={response} />
       </div>
     </>
   );
