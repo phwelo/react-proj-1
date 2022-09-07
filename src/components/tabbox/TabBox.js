@@ -14,24 +14,35 @@ function TabBox(props) {
     console.log(props.song);
   }
 
+  function TabeArea() {
+    if (props.selectedTabLoading == true) {
+      return (
+        <Box sx={{ width: 600, height: 600 }}>
+          {"Loading "}
+          <Skeleton variant="h1"></Skeleton>
+          <Skeleton variant="h2"></Skeleton>
+          <Skeleton variant="text"></Skeleton>
+        </Box>
+      );
+    } else {
+      if (props.song.parsed) {
+        return(
+        <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
+          {displayParsedChords(props.song.parsed)}
+        </List>
+        )
+      }
+      else return(<>select view on a tab</>)
+    }
+  }
+
   return (
     <div>
       {props.song ? (
         <Box>
           <h1>{props.song.song_name}</h1>
           <h2>{props.song.artist_name}</h2>
-          {props.song.parsed ? (
-            <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
-              {displayParsedChords(props.song.parsed)}
-            </List>
-          ) : (
-            <Box sx={{ width: 600, height: 600 }}>
-              {" "}
-              <Skeleton variant='h1'></Skeleton>
-              <Skeleton variant='h2'></Skeleton>
-              <Skeleton variant='text'></Skeleton>
-            </Box>
-          )}
+          <TabeArea></TabeArea>
         </Box>
       ) : (
         <Box>

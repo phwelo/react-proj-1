@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { get } from "utils/requests";
 import Titlebar from "components/titlebar/Titlebar";
 import styles from "components/App.module.scss";
-import Main from "./main/Main";
+import MainComponent from "./main/MainComponent";
 
 function App() {
   const [response, setResponse] = useState([]);
@@ -29,12 +29,10 @@ function App() {
   }, []);
 
   return (
-    <>
       <div className={styles.app}>
         <Titlebar />
-        <Main songs={response} />
+        <MainComponent songs={response} />
       </div>
-    </>
   );
 }
 
