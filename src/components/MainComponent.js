@@ -15,6 +15,7 @@ function MainComponent(props) {
   const [navTab, setNavTab] = React.useState(0);
   const [query, setQuery] = React.useState("");
   const [selectedTabLoading, setSelectedTabLoading] = React.useState(false);
+  const [searchIsSearching, setSearchIsSearching] = React.useState(false)
   const [selectedSong, setSelectedSong] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
 
@@ -26,6 +27,14 @@ function MainComponent(props) {
       console.log("hit");
     }
   }, [selectedSong]);
+
+  useEffect(() => {
+    console.log('search is searching' , searchIsSearching.toString())
+  }, [searchIsSearching])
+
+  useEffect(() => {
+    console.log('search results' , searchResults.toString())
+  }, [searchResults])
 
   const handleTextBoxChange = (value) => {
     setQuery(value);
@@ -46,6 +55,7 @@ function MainComponent(props) {
   }
 
   function handleSearchButton() {
+    setSearchIsSearching(true)
     console.log("query is " + query);
     var path = "api/v1/search/" + query;
 
@@ -58,6 +68,9 @@ function MainComponent(props) {
         ),
       3000
     );
+    
+    setSearchIsSearching(false)
+
   }
 
 
@@ -104,6 +117,7 @@ function MainComponent(props) {
               onChange={(value) => handleTextBoxChange(value)}
               query={props.query}
               sx={{ width: "100%" }}
+              handleSearchButton = {handleSearchButton}
             />
           </Box>
 
@@ -119,9 +133,9 @@ function MainComponent(props) {
               songs={props.songs}
               navTab={navTab}
               query={props.query}
-              handleSearchButton = {handleSearchButton}
               searchResults = {searchResults}
-              selectSong={setSelectedSong}
+              selectSong = {setSelectedSong}
+              searchIsSearching = {searchIsSearching}
             />
           </Box>
 

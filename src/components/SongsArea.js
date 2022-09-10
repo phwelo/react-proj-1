@@ -5,34 +5,47 @@ import Box from "@mui/material/Box";
 
 import { get } from "utils/requests";
 
-import Button from "@mui/material/Button";
+
 import Skeleton from "@mui/material/Skeleton";
 
 function SongsArea(props) {
 
-  const query = props.query;
-
-
-
   if (props.songs.length > 0 && props.navTab == 0) {
     return (
       <List>
-        <ListSongs songs={props.songs} selectSong={props.selectSong}></ListSongs>
+        <ListSongs
+          songs={props.songs}
+          selectSong={props.selectSong}
+        ></ListSongs>
       </List>
     );
-  } else if (props.songs.length == 0 && props.navTab == 0) {
+  } else if (props.songs.length == 0 && props.navTab == 0 && props.searchIsSearching === false) {
     return <Skeleton variant="rectangle"></Skeleton>;
   } else if (props.navTab == 1 && props.searchResults.length == 0) {
     return (
       <Box>
         <>Search the web for new tabs</>
-        <Button onClick={props.handleSearchButton}>Search</Button>
+        
       </Box>
     );
-  } else {
+  } 
+  else if (props.navTab == 1 && props.searchIsSearching === true) {
+    return (
+      <Box>
+        searching
+      </Box>
+    );
+  } 
+  
+  
+  
+  else {
     return (
       <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
-        <ListSongs songs={props.searchResults} selectSong={props.selectSong}></ListSongs>
+        <ListSongs
+          songs={props.searchResults}
+          selectSong={props.selectSong}
+        ></ListSongs>
       </List>
     );
   }
