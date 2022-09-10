@@ -7,13 +7,13 @@ function SearchBox(props) {
   return (
     <Box component="form" noValidate autoComplete="off">
       <TextField
+        fullWidth
         id="outlined-basic"
         label="Outlined"
         variant="outlined"
         color="success"
         onChange={event => props.onChange(event.target.value)}
-
-        focused
+        
       />
     </Box>
   );

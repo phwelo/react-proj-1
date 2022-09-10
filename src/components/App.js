@@ -29,10 +29,10 @@ function App() {
   }, []);
 
   return (
-      <div className={styles.app}>
-        <Titlebar />
-        <MainComponent songs={response} />
-      </div>
+    <div className={styles.app}>
+      <Titlebar />
+      <MainComponent songs={response} />
+    </div>
   );
 }
 

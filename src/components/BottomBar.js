@@ -3,15 +3,17 @@ import ShareIcon from "@mui/icons-material/Share";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SaveIcon from "@mui/icons-material/Save";
+import Box from "@mui/material/Box";
+
 
 function BottomBar() {
   return (
-    <div>
+    <Box sx={{ display: 'flex', justifyContent: "space-around", alignItems: "center"}}>
       <ShareIcon></ShareIcon>
       <EditIcon></EditIcon>
       <DeleteIcon></DeleteIcon>
       <SaveIcon></SaveIcon>
-    </div>
+    </Box>
   );
 }
 

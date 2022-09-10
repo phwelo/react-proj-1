@@ -5,6 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import Skeleton from "@mui/material/Skeleton";
 
 function TabBox(props) {
+
   function displayParsedChords(chords) {
     return chords.map((chord) => (
       <ListItem key={chord.content.index}>{chord.content.toString()}</ListItem>
@@ -14,7 +15,7 @@ function TabBox(props) {
     console.log(props.song);
   }
 
-  function TabeArea() {
+  function TabArea() {
     if (props.selectedTabLoading == true) {
       return (
         <Box sx={{ width: 600, height: 600 }}>
@@ -42,7 +43,7 @@ function TabBox(props) {
         <Box>
           <h1>{props.song.song_name}</h1>
           <h2>{props.song.artist_name}</h2>
-          <TabeArea></TabeArea>
+          <TabArea></TabArea>
         </Box>
       ) : (
         <Box>
