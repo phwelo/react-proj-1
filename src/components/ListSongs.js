@@ -18,6 +18,22 @@ function ListSongs(props) {
         props.selectSong(song);
       }}
     >
+        <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Typography variant="h6" component="div">
+            {song.song_name}
+          </Typography>
+          <Typography variant="h5" component="div">
+            {song.artist_name}
+          </Typography>
+          <Typography variant="body1" component="div">
+            {song.rating + " rating"}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">View</Button>
+        </CardActions>
+      </Card>{" "}
 
     </ListItem>
   ));

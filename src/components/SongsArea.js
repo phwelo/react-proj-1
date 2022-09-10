@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import List from "@mui/material/List";
 import ListSongs from "./ListSongs";
 import Box from "@mui/material/Box";
-
-import { get } from "utils/requests";
-
-
 import Skeleton from "@mui/material/Skeleton";
 
 function SongsArea(props) {
@@ -24,15 +20,14 @@ function SongsArea(props) {
   } else if (props.navTab == 1 && props.searchResults.length == 0) {
     return (
       <Box>
-        <>Search the web for new tabs</>
-        
+        Search the web for new tabs
       </Box>
     );
   } 
   else if (props.navTab == 1 && props.searchIsSearching === true) {
     return (
       <Box>
-        searching
+        Searching...
       </Box>
     );
   } 
