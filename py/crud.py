@@ -39,7 +39,7 @@ def search_songs(query):
 def download_song(url):
   song = Song(url)
   write_song(song)
-  return True
+  return jsonify(song.__dict__)
 
 @app.route('/api/v1/view/<path:url>')
 def view_song(url):
