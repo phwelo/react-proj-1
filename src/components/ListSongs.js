@@ -7,9 +7,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 function ListSongs(props) {
-
-
-  console.log(props.songs[1]);
   return props.songs.map((song, index) => (
     <ListItem
       key={index}
@@ -18,7 +15,7 @@ function ListSongs(props) {
         props.selectSong(song);
       }}
     >
-        <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275 }}>
         <CardContent>
           <Typography variant="h6" component="div">
             {song.song_name}
@@ -34,7 +31,6 @@ function ListSongs(props) {
           <Button size="small">View</Button>
         </CardActions>
       </Card>{" "}
-
     </ListItem>
   ));
 }

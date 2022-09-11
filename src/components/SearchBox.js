@@ -15,7 +15,7 @@ function SearchBox(props) {
         onChange={event => props.onChange(event.target.value)}
         
       />
-      <Button onClick={props.handleSearchButton} variant="contained">Search</Button>
+      <Button onClick={()=> props.handleSearchButton()} variant="contained">Search</Button>
     </Box>
   );
 }

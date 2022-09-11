@@ -18,6 +18,7 @@ function MainComponent(props) {
   const [searchIsSearching, setSearchIsSearching] = React.useState(false)
   const [selectedSong, setSelectedSong] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
+  const [firstSearch, setFirstSearch] = React.useState(true)
 
   useEffect(() => {
     if (!selectedSong.id == "") {
@@ -54,8 +55,14 @@ function MainComponent(props) {
     console.log(newValue);
   }
 
-  function handleSearchButton() {
+   function handleSearchButton() {
     setSearchIsSearching(true)
+
+    if(firstSearch == true){
+      setFirstSearch(false)
+    }
+
+
     console.log("query is " + query);
     var path = "api/v1/search/" + query;
 
@@ -63,13 +70,15 @@ function MainComponent(props) {
       () =>
         get(
           path, // Route
-          (response) => setSearchResults(response), // Response callback
+          (response) => {setSearchResults(response)
+            setSearchIsSearching(false)}, // Response callback
           (error) => console.error(error) // Error callback
         ),
       3000
-    );
+    )
+  
     
-    setSearchIsSearching(false)
+    
 
   }
 
@@ -88,6 +97,7 @@ function MainComponent(props) {
         ),
       3000
     );
+    setSelectedTabLoading(false)
   }
 
   return (
@@ -135,6 +145,7 @@ function MainComponent(props) {
               query={props.query}
               searchResults = {searchResults}
               selectSong = {setSelectedSong}
+              firstSearch = {firstSearch}
               searchIsSearching = {searchIsSearching}
             />
           </Box>

@@ -6,6 +6,8 @@ import Skeleton from "@mui/material/Skeleton";
 
 function SongsArea(props) {
 
+
+
   if (props.songs.length > 0 && props.navTab == 0) {
     return (
       <List>
@@ -16,18 +18,43 @@ function SongsArea(props) {
       </List>
     );
   } else if (props.songs.length == 0 && props.navTab == 0 && props.searchIsSearching === false) {
-    return <Skeleton variant="rectangle"></Skeleton>;
-  } else if (props.navTab == 1 && props.searchResults.length == 0) {
+    return (      <Box>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <br></br>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <br></br>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <br></br>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      </Box>)
+  } else if (props.navTab == 1 && props.searchResults.length == 0 && props.searchIsSearching === false && props.firstSearch == true) {
     return (
-      <Box>
+      <Box key={props.searchIsSearching}>
         Search the web for new tabs
+      </Box>
+    );
+  } 
+  else if (props.navTab == 1 && props.searchResults.length == 0 && props.searchIsSearching === false && props.firstSearch === false) {
+    return (
+      <Box key={props.searchIsSearching}>
+        Nothing found
       </Box>
     );
   } 
   else if (props.navTab == 1 && props.searchIsSearching === true) {
     return (
       <Box>
-        Searching...
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <br></br>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <br></br>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      <br></br>
+      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
       </Box>
     );
   } 
