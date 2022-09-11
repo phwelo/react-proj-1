@@ -25,8 +25,8 @@ function ListSongs(props) {
   };
 
   return props.songs.map((song, index) => (
-    <div>
-    <Accordion key={index} expanded={expanded === song.song_name} onChange={handleChange(song.song_name)}>
+    <div style={{ maxHeight: 200, overflow: "auto" }}>
+    <Accordion key={index} expanded={expanded === song.id} onChange={handleChange(song.id)}>
       <AccordionSummary
         aria-controls="panel1bh-content"
         id="panel1bh-header"
@@ -39,11 +39,17 @@ function ListSongs(props) {
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <ButtonGroup variant="contained" aria-label="outlined primary button group">
-          <Button onClick={() => {props.selectSong(song);}}><Pageview fontSize="small"/></Button>
-          <Button variant="outlined"><EditIcon fontSize="small"/></Button>
-          <Button variant="outlined"><DeleteForeverIcon fontSize="small"/></Button>
-        </ButtonGroup>
+      {props.fromSearch ? 
+      <ButtonGroup variant="contained" aria-label="outlined primary button group">
+        <Button onClick={()=> props.downloadSong(song)}><Pageview fontSize="small"/></Button>
+      </ButtonGroup>
+      :
+      <ButtonGroup variant="contained" aria-label="outlined primary button group">
+        <Button onClick={() => {props.selectSong(song);}}><Pageview fontSize="small"/></Button>
+        <Button variant="outlined"><EditIcon fontSize="small"/></Button>
+        <Button variant="outlined"><DeleteForeverIcon fontSize="small"/></Button>
+      </ButtonGroup>
+      }
       </AccordionDetails>
     </Accordion>
     </div>

@@ -32,7 +32,7 @@ function SongsArea(props) {
   } else if (props.navTab == 1 && props.searchResults.length == 0 && props.searchIsSearching === false && props.firstSearch == true) {
     return (
       <Box key={props.searchIsSearching}>
-        Search the web for new tabs
+        Use the search box to find new tabs
       </Box>
     );
   } 
@@ -42,7 +42,7 @@ function SongsArea(props) {
         Nothing found
       </Box>
     );
-  } 
+  }
   else if (props.navTab == 1 && props.searchIsSearching === true) {
     return (
       <Box>
@@ -58,8 +58,6 @@ function SongsArea(props) {
       </Box>
     );
   } 
-  
-  
   
   else {
     return (
