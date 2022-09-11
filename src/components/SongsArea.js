@@ -9,7 +9,7 @@ function SongsArea(props) {
 
   if (props.songs.length > 0 && props.navTab == 0) {
     return (
-      <Box sx={{ overflowY: "scroll", maxHeight: 600 }}>
+      <Box sx={{ overflowY: "scroll", maxHeight: "100%" }}>
         <ListSongs
           songs={props.songs}
           selectSong={props.selectSong}

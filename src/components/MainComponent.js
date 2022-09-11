@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import TabBox from "components/TabBox";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import BottomBar from "./BottomBar";
 import SearchBox from "./SearchBox";
 import SongsArea from "./SongsArea";
 import { get } from "utils/requests";
@@ -138,7 +137,7 @@ function MainComponent(props) {
             justifyContent: "space-between",
           }}
         >
-          <Box sx={{ flex: 1 }}>
+          <Box sx={{ flex: 1, maxHeight:"3em" }}>
             <SearchBox
               fullWidth
               onChange={(value) => handleTextBoxChange(value)}
@@ -148,7 +147,7 @@ function MainComponent(props) {
             />
           </Box>
 
-          <Box sx={{ flex: 1 }}>
+          <Box sx={{ flex: 1, maxHeight:"3em", marginBottom:"0px", marginTop:"0px" }}>
             <Tabs value={navTab} onChange={handleChange} variant="fullWidth">
               <Tab label="My Library" />
               <Tab label="Search" />
