@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Skeleton from "@mui/material/Skeleton";
+import { Pageview } from "@mui/icons-material";
 
 function TabBox(props) {
 
@@ -16,6 +17,7 @@ function TabBox(props) {
   }
 
   function TabArea() {
+    // this doesn't seem to work?
     if (props.selectedTabLoading == true) {
       return (
         <Box sx={{ width: 600, height: 600 }}>
@@ -28,12 +30,12 @@ function TabBox(props) {
     } else {
       if (props.song.parsed) {
         return(
-        <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
+        <List style={{ fontFamily: 'monospace', maxHeight: 600, overflow: "auto", width: "100%" }}>
           {displayParsedChords(props.song.parsed)}
         </List>
         )
       }
-      else return(<>select view on a tab</>)
+      else return(<>select <Pageview/> on a tab to load it into this panel</>)
     }
   }
 
