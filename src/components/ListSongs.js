@@ -25,7 +25,7 @@ function ListSongs(props) {
   };
 
   return props.songs.map((song, index) => (
-    <div style={{ maxHeight: 200, overflow: "auto" }}>
+   
     <Accordion key={index} expanded={expanded === song.id} onChange={handleChange(song.id)}>
       <AccordionSummary
         aria-controls="panel1bh-content"
@@ -52,7 +52,7 @@ function ListSongs(props) {
       }
       </AccordionDetails>
     </Accordion>
-    </div>
+    
     // <ListItem
     //   key={index}
     //   style={{ maxHeight: 200, overflow: "auto" }}

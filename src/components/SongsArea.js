@@ -17,7 +17,7 @@ function SongsArea(props) {
     );
   } else if (props.songs.length == 0 && props.navTab == 0 && props.searchIsSearching === false) {
     return (      
-      <Box>
+      <Box sx={{ maxHeight: 600, overflow: "auto" }}>
         <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
         <br></br>
         <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
@@ -45,7 +45,7 @@ function SongsArea(props) {
   }
   else if (props.navTab == 1 && props.searchIsSearching === true) {
     return (
-      <Box>
+      <Box sx={{ maxHeight: 600, overflow: "auto" }}>
       <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
       <br></br>
       <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
@@ -61,12 +61,15 @@ function SongsArea(props) {
   
   else {
     return (
-        <ListSongs
+      <Box sx={{ maxHeight: 600, overflow: "auto" }}>
+                <ListSongs
           songs={props.searchResults}
           fromSearch={true}
           selectSong={props.selectSong}
           downloadSong = {props.downloadSong}
         />
+      </Box>
+
     );
   }
 }
