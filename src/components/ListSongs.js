@@ -7,11 +7,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 function ListSongs(props) {
-
-  console.log(props)
-  return props.songs.map((song) => (
+  return props.songs.map((song, index) => (
     <ListItem
-      key={song.id}
+      key={index}
       style={{ maxHeight: 200, overflow: "auto" }}
       onClick={() => {
         props.selectSong(song);
