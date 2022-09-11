@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import List from "@mui/material/List";
 import ListSongs from "./ListSongs";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
@@ -10,10 +9,12 @@ function SongsArea(props) {
 
   if (props.songs.length > 0 && props.navTab == 0) {
     return (
+      <Box sx={{ overflowY: "scroll", maxHeight: 600 }}>
         <ListSongs
           songs={props.songs}
           selectSong={props.selectSong}
         / >
+      </Box>
     );
   } else if (props.songs.length == 0 && props.navTab == 0 && props.searchIsSearching === false) {
     return (      
