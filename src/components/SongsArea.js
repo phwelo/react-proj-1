@@ -10,7 +10,7 @@ function SongsArea(props) {
 
   if (props.songs.length > 0 && props.navTab == 0) {
     return (
-      <List>
+      <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
         <ListSongs
           songs={props.songs}
           selectSong={props.selectSong}
@@ -63,10 +63,13 @@ function SongsArea(props) {
   
   else {
     return (
+
       <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
         <ListSongs
           songs={props.searchResults}
+          fromSearch={true}
           selectSong={props.selectSong}
+          downloadSong = {props.downloadSong}
         ></ListSongs>
       </List>
     );

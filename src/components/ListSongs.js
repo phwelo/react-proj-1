@@ -5,8 +5,11 @@ import CardContent from "@mui/material/CardContent";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
 
 function ListSongs(props) {
+
+
   return props.songs.map((song, index) => (
     <ListItem
       key={index}
@@ -28,7 +31,13 @@ function ListSongs(props) {
           </Typography>
         </CardContent>
         <CardActions>
+        <Box>
+        {props.fromSearch ? 
+          <Button size="small" onClick={()=> props.downloadSong(song)}>Download</Button>
+         : 
           <Button size="small">View</Button>
+        }
+      </Box>
         </CardActions>
       </Card>{" "}
     </ListItem>
