@@ -82,11 +82,28 @@ function MainComponent(props) {
 
   }
 
-
   function loadSong(song) {
     setSelectedTabLoading(true);
     console.log("getting song id " + song.toString());
     var path = "api/v1/song/" + song.id.toString();
+
+    setTimeout(
+      () =>
+        get(
+          path, // Route
+          (response) => setResponse(response), // Response callback
+          (error) => console.error(error) // Error callback
+        ),
+      3000
+    );
+    setSelectedTabLoading(false)
+  }
+
+  function downloadSong(song) {
+    setSelectedTabLoading(true);
+
+    var path = "api/v1/download/" + song.tab_url.toString();
+    console.log('path' + path)
 
     setTimeout(
       () =>
@@ -147,6 +164,7 @@ function MainComponent(props) {
               selectSong = {setSelectedSong}
               firstSearch = {firstSearch}
               searchIsSearching = {searchIsSearching}
+              downloadSong = {downloadSong}
             />
           </Box>
 
