@@ -10,25 +10,25 @@ function SongsArea(props) {
 
   if (props.songs.length > 0 && props.navTab == 0) {
     return (
-      <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
         <ListSongs
           songs={props.songs}
           selectSong={props.selectSong}
-        ></ListSongs>
-      </List>
+        / >
     );
   } else if (props.songs.length == 0 && props.navTab == 0 && props.searchIsSearching === false) {
-    return (      <Box>
-      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-      <br></br>
-      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-      <br></br>
-      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-      <br></br>
-      <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-      </Box>)
+    return (      
+      <Box>
+        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+        <br></br>
+        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+        <br></br>
+        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+        <br></br>
+        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+      </Box>
+    )
   } else if (props.navTab == 1 && props.searchResults.length == 0 && props.searchIsSearching === false && props.firstSearch == true) {
     return (
       <Box key={props.searchIsSearching}>
@@ -63,15 +63,12 @@ function SongsArea(props) {
   
   else {
     return (
-
-      <List style={{ maxHeight: 600, overflow: "auto", width: "100%" }}>
         <ListSongs
           songs={props.searchResults}
           fromSearch={true}
           selectSong={props.selectSong}
           downloadSong = {props.downloadSong}
-        ></ListSongs>
-      </List>
+        />
     );
   }
 }

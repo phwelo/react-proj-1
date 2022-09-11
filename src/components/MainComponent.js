@@ -155,7 +155,7 @@ function MainComponent(props) {
             </Tabs>
           </Box>
 
-          <Box sx={{ flex: 3 }}>
+          <Box sx={{ justifyContent: "flex-end", flex: 3 }}>
             <SongsArea
               songs={props.songs}
               navTab={navTab}
@@ -166,10 +166,6 @@ function MainComponent(props) {
               searchIsSearching = {searchIsSearching}
               downloadSong = {downloadSong}
             />
-          </Box>
-
-          <Box sx={{ justifyContent: "flex-end", flex: 1 }}>
-            <BottomBar />
           </Box>
         </Box>
       </Box>
