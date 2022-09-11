@@ -3,6 +3,7 @@ import { get } from "utils/requests";
 import Titlebar from "components/titlebar/Titlebar";
 import styles from "components/App.module.scss";
 import MainComponent from "./MainComponent";
+import PlusButton from "components/plusbutton/Plusbutton"
 
 function App() {
   const [response, setResponse] = useState([]);
@@ -31,6 +32,7 @@ function App() {
   return (
     <div className={styles.app}>
       <Titlebar />
+      <PlusButton />
       <MainComponent songs={response} />
     </div>
   );
