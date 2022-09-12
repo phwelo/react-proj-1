@@ -7,15 +7,16 @@ function SearchBox(props) {
   return (
     <Box component="form" noValidate autoComplete="off" display="flex">
       <TextField
+        size="small"
         fullWidth
         id="outlined-basic"
-        label="Outlined"
+        label="Song/Artist"
         variant="outlined"
         color="success"
         onChange={event => props.onChange(event.target.value)}
         
       />
-      <Button onClick={()=> props.handleSearchButton()} variant="contained">Search</Button>
+      <Button size="small" onClick={()=> props.handleSearchButton()} variant="contained">Search</Button>
     </Box>
   );
 }

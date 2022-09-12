@@ -125,6 +125,8 @@ function MainComponent(props) {
         flexDirection: "row",
         flexWrap: "nowrap",
         justifyContent: "space-between",
+        padding: 0,
+        margin: 0,
         mt: 10,
         p: 1,
       }}

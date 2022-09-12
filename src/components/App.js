@@ -31,7 +31,6 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <Titlebar />
       <PlusButton />
       <MainComponent songs={response} />
     </div>
