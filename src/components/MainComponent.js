@@ -22,8 +22,8 @@ function MainComponent(props) {
 
   function loadSong(song) {
     setSelectedTabLoading(true);
-    console.log("getting song id " + song.toString());
-    var path = "api/v1/song/" + song.id.toString();
+    console.log("getting song id " + "api/v1/view/" + song.song.tab_url.toString());
+    var path = "api/v1/view/" + song.song.tab_url.toString();
 
     setTimeout(
       () =>
@@ -33,8 +33,10 @@ function MainComponent(props) {
             setResponse(response);
             setSelectedTabLoading(false);
           }, // Response callback
-          (error) => {console.error(error);
-          setError(error)} // Error callback
+          (error) => {
+            console.error(error);
+            setError(error)
+            setSelectedTabLoading(false);} // Error callback
         ),
       3000
     );

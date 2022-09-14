@@ -41,7 +41,7 @@ function TabBox(props) {
       } else if (props.error) {
         return(
         <Box>
-        {props.error}
+        {props.error.toString()}
         </Box>
         )
       }

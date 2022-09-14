@@ -76,7 +76,7 @@ function TabBarToolBox(props) {
             />
             <Box sx={{height: 300, width: "100%"}}>
               {searchResults.length > 0 ? (
-                <SearchResults songs={searchResults} loadSong={props.loadSong}></SearchResults>
+                <SearchResults songs={searchResults} loadSong={props.loadSong} handleClose={handleClose}></SearchResults>
               ) : (
                 <>Search for a song</>
               )}
