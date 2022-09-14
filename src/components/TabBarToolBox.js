@@ -58,12 +58,11 @@ function TabBarToolBox(props) {
   }, [searchIsSearching]);
 
   useEffect(() => {
-    console.log("search results", searchResults.toString());
+    console.log("search results", JSON.stringify(searchResults).toString());
   }, [searchResults]);
 
   function BasicModal() {
     return (
-      <div>
         <Modal
           open={open}
           onClose={handleClose}
@@ -85,15 +84,13 @@ function TabBarToolBox(props) {
             </Box>
           </Box>
         </Modal>
-      </div>
     );
   }
 
   return (
-    <Box sx={{display: 'flex', flexDirection: 'row', alignSelf: 'flex-end', height: '100%'}}>
+    <Box sx= {{display: "flex" , flexDirection: "row", justifyContent: "flex-end"}}>
       <AddCircleOutlineIcon onClick={handleOpen} />
       {!props.selectedSong === "" ? <CloudDownloadIcon onClick={() => alert("download")}></CloudDownloadIcon> : null }
-      
       <BasicModal></BasicModal>
     </Box>
   );

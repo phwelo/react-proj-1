@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 
 function SearchBox(props) {
   const [query, setQuery] = React.useState("");
+
   const handleTextBoxChange = (value) => {
     setQuery(value);
   };
@@ -17,7 +18,7 @@ function SearchBox(props) {
         variant="outlined"
         color="success"
         value={props.query}
-        onChange={(value) => handleTextBoxChange(value)}
+        onChange={(e) => handleTextBoxChange(e.target.value)}
       />
       <Button
         onClick={() => props.handleSearchButton(query)}

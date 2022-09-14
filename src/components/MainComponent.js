@@ -9,6 +9,7 @@ function MainComponent(props) {
   const [response, setResponse] = useState([]);
   const [selectedTabLoading, setSelectedTabLoading] = React.useState(false);
   const [selectedSong, setSelectedSong] = React.useState("");
+  const [error, setError] = React.useState("")
 
   useEffect(() => {
     if (!selectedSong.id == "") {
@@ -32,7 +33,8 @@ function MainComponent(props) {
             setResponse(response);
             setSelectedTabLoading(false);
           }, // Response callback
-          (error) => console.error(error) // Error callback
+          (error) => {console.error(error);
+          setError(error)} // Error callback
         ),
       3000
     );
@@ -74,6 +76,8 @@ function MainComponent(props) {
           sx={{
             display: "flex",
             flexDirection: "column",
+            flex: 6,
+            justifyContent: "flex-start",
           }}
         >
           <SongsArea songs={props.songs} selectSong={setSelectedSong} />
@@ -81,11 +85,10 @@ function MainComponent(props) {
       </Box>
 
       <Box sx={{ display: "flex", flex: 4}}>
-
-        <TabBoxToolBar loadSong={loadSong} selectedSong = {selectedSong} />
-     
-
-        <TabBox song={response} selectedTabLoading={selectedTabLoading} />
+        <Box sx={{ display: "flex", flex: 6,flexDirection: "column"}}>
+          <TabBoxToolBar loadSong={loadSong} selectedSong={selectedSong} />
+          <TabBox song={response} selectedTabLoading={selectedTabLoading} error={error} />
+        </Box>
       </Box>
     </Box>
   );

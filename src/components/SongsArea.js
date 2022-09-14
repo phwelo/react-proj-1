@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ListSongs from "./ListSongs";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
@@ -13,15 +13,12 @@ function SongsArea(props) {
   } else if (props.songs.length == 0) {
     return (
       <Box sx={{ maxHeight: 600, overflow: "auto" }}>
-        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-        <br></br>
-        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-        <br></br>
-        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
-        <br></br>
-        <Skeleton variant="rectangle" width={210} height={60}></Skeleton>
+        <Skeleton height={60} />
+        <Skeleton height={60} />
+        <Skeleton height={60} />
+        <Skeleton height={60} />
+        <Skeleton height={60} />
+        <Skeleton height={60} />
       </Box>
     );
   }
