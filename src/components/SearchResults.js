@@ -19,15 +19,16 @@ function SearchResults(props) {
     return props.songs.map((song, index) => (
       <ListItem key={index}>
         <ListItemButton onClick={() => {
-          props.loadSong({ song }) 
+          props.viewSong({ song }) 
           props.handleClose()}}>
           <ListItemIcon>
             <MusicNoteIcon />
           </ListItemIcon>
-
+          <ListItemText>{index} </ListItemText>
           <ListItemText>{song.song_name} </ListItemText>
 
           <ListItemText>{song.artist_name} </ListItemText>
+          <ListItemText>{song.rating} </ListItemText>
         </ListItemButton>
 
         <Divider />
