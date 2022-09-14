@@ -18,7 +18,7 @@ function TabBox(props) {
 
   function TabArea() {
     // this doesn't seem to work?
-    if (props.selectedTabLoading == true) {
+    if (props.selectedTabLoading === true) {
       return (
         <Box sx={{ width: 600, height: 600 }}>
           {"Loading "}
