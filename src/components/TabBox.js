@@ -39,27 +39,38 @@ function TabBox(props) {
           </List>
         );
       } else if (props.error) {
-        return(
-        <Box>
-        {"ERROR:" + props.error.toString()}
-        </Box>
-        )
-      }
-      
-      else
+        return <Box>{"ERROR:" + props.error.toString()}</Box>;
+      } else
         return (
-          <Box  >
+          <Box>
             select <Pageview /> on a tab to load it into this panel
           </Box>
         );
     }
   }
 
+  function SongHeader() {
+    if (props.selectedTabLoading === true) {
+      return (
+        <>
+          <Skeleton variant="H1" height={60} />
+          <Skeleton variant="H2" height={60} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <h1>{props.song.song_name}</h1>
+          <h2>{props.song.artist_name}</h2>
+        </>
+      );
+    }
+  }
+
   return (
     <Box>
       <Box>
-        <h1>{props.song.song_name}</h1>
-        <h2>{props.song.artist_name}</h2>
+        <SongHeader></SongHeader>
         <TabArea></TabArea>
       </Box>
     </Box>
