@@ -9,7 +9,36 @@ function MainComponent(props) {
   const [response, setResponse] = useState([]);
   const [selectedTabLoading, setSelectedTabLoading] = React.useState(false);
   const [selectedSong, setSelectedSong] = React.useState("");
-  const [error, setError] = React.useState("")
+  const [error, setError] = React.useState("");
+  const [library, setLibrary] = React.useState("");
+  const [libraryLoading, setLibraryLoading] = React.useState("");
+
+  useEffect(() => {
+    loadLibrary();
+  }, []);
+
+  useEffect(() => {
+    setResponse(response);
+  }, []);
+
+  function loadLibrary() {
+    setTimeout(
+      () =>
+        get(
+          "api/v1/songs", // Route
+          (library) => {
+            setLibrary(library);
+            setLibraryLoading(false);
+          }, // Response callback
+          (error) => {
+            console.error(error);
+            setError(error);
+            setLibraryLoading(false);
+          } // Error callback
+        ),
+      3000
+    );
+  }
 
   useEffect(() => {
     if (!selectedSong.id == "") {
@@ -22,7 +51,9 @@ function MainComponent(props) {
 
   function viewSong(song) {
     setSelectedTabLoading(true);
-    console.log("getting song id " + "api/v1/view/" + song.song.tab_url.toString());
+    console.log(
+      "getting song id " + "api/v1/view/" + song.song.tab_url.toString()
+    );
     var path = "api/v1/view/" + song.song.tab_url.toString();
 
     setTimeout(
@@ -35,8 +66,9 @@ function MainComponent(props) {
           }, // Response callback
           (error) => {
             console.error(error);
-            setError(error)
-            setSelectedTabLoading(false);} // Error callback
+            setError(error);
+            setSelectedTabLoading(false);
+          } // Error callback
         ),
       3000
     );
@@ -57,8 +89,9 @@ function MainComponent(props) {
           }, // Response callback
           (error) => {
             console.error(error);
-            setError(error)
-            setSelectedTabLoading(false);} // Error callback
+            setError(error);
+            setSelectedTabLoading(false);
+          } // Error callback
         ),
       3000
     );
@@ -68,18 +101,24 @@ function MainComponent(props) {
     setSelectedTabLoading(true);
 
     var path = "api/v1/download/" + song.tab_url.toString();
-    console.log("path" + path);
+    console.log("path " + path);
 
     setTimeout(
       () =>
         get(
           path, // Route
-          (response) => setResponse(response), // Response callback
-          (error) => console.error(error) // Error callback
+          (response) => {
+            setResponse(response);
+            setSelectedTabLoading(false);
+          }, // Response callback
+          (error) => {
+            console.error(error);
+            setError(error);
+            setSelectedTabLoading(false);
+          } // Error callback
         ),
       3000
     );
-    setSelectedTabLoading(false);
   }
 
   return (
@@ -104,14 +143,22 @@ function MainComponent(props) {
             justifyContent: "flex-start",
           }}
         >
-          <SongsArea songs={props.songs} selectSong={setSelectedSong} />
+          <SongsArea songs={library} selectSong={setSelectedSong} />
         </Box>
       </Box>
 
-      <Box sx={{ display: "flex", flex: 4}}>
-        <Box sx={{ display: "flex", flex: 6,flexDirection: "column"}}>
-          <TabBoxToolBar viewSong={viewSong} selectedSong={selectedSong} />
-          <TabBox song={response} selectedTabLoading={selectedTabLoading} error={error} />
+      <Box sx={{ display: "flex", flex: 4 }}>
+        <Box sx={{ display: "flex", flex: 6, flexDirection: "column" }}>
+          <TabBoxToolBar
+            viewSong={viewSong}
+            response={response}
+            download={downloadSong}
+          />
+          <TabBox
+            song={response}
+            selectedTabLoading={selectedTabLoading}
+            error={error}
+          />
         </Box>
       </Box>
     </Box>

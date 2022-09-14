@@ -64,6 +64,7 @@ function TabBarToolBox(props) {
   function BasicModal() {
     return (
         <Modal
+        style={style}
           open={open}
           onClose={handleClose}
           aria-labelledby="modal-modal-title"
@@ -90,7 +91,7 @@ function TabBarToolBox(props) {
   return (
     <Box sx= {{display: "flex" , flexDirection: "row", justifyContent: "flex-end"}}>
       <AddCircleOutlineIcon onClick={handleOpen} />
-      {!props.selectedSong === "" ? <CloudDownloadIcon onClick={() => alert("download")}></CloudDownloadIcon> : null }
+       <CloudDownloadIcon onClick={() => props.download(props.response)}></CloudDownloadIcon>
       <BasicModal></BasicModal>
     </Box>
   );
