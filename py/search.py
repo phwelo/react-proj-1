@@ -16,13 +16,29 @@ def convert_to_json(html):
   jstore = soup.find_all('div', attrs={'class': 'js-store'})[0]["data-content"]
   return json.dumps(json.loads(jstore)["store"]["page"]["data"]["results"])
 
+def filter_unsupported_urls(obj1):
+  obj = json.loads(obj1)
+  for song in obj:
+    if "/tab/" in song["tab_url"]:
+      yield song
+
+def filter_unsupported_types(obj):
+  for song in obj:
+    if song["type"] != "Pro" and song["type"] != "Video" and song["type"] != "Power":
+      yield song
+
 def get_songs_list(song_name):
   web_result = web_search(song_name)
-  results_json = convert_to_json(web_result)
-  return json.loads(results_json)
+  filtered_json = convert_to_json(web_result)
+  filtered_json = list(filter_unsupported_urls(filtered_json))
+  filtered_json = list(filter_unsupported_types(filtered_json))
+  filtered_json = sorted(filtered_json, key=lambda k: k['rating'], reverse=True)
+  return filtered_json
 
 def main():
-  print(get_songs_list("Moonshiner"))
+  print(
+    json.dumps(get_songs_list("Sympathy for the devil"))
+  )
 
 if __name__ == "__main__":
   main()
