@@ -6,12 +6,12 @@ body section.titlebar {
   padding: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  max-width: 100vw;
+  right: 0;
+  width: 66vw;
+  max-width: 66vw;
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  background-color: #eaeaea;
+  background-color: #5c0000;
 
   div {
     display: flex;
@@ -20,7 +20,7 @@ body section.titlebar {
     span {
       font-size: 14px;
       font-family: 'Roboto', sans-serif;
-      color: #252525;
+      color: #ffffff;
     }
 
     img {
