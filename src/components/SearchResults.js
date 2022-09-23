@@ -39,14 +39,16 @@ function SearchResults(props) {
   return (
     <Box
       sx={{
-        width: "100%",
-        maxWidth: 360,
-        maxHeight: 200,
-        overflow: "auto",
-        bgcolor: "background.paper",
+      overflow: "auto",
+      maxHeight: "80vh"
+        //   width: "100%",
+      //   maxWidth: 360,
+      //   maxHeight: 200,
+      //   overflow: "auto",
+      //   bgcolor: "background.paper",
       }}
     >
-      <List>
+      <List sx={{maxHeight: "80vh", overflow: "scroll-vertical"}}>
         <Results></Results>
       </List>
     </Box>

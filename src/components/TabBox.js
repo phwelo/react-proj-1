@@ -5,6 +5,13 @@ import ListItem from "@mui/material/ListItem";
 import Skeleton from "@mui/material/Skeleton";
 import { Pageview } from "@mui/icons-material";
 
+const tabBoxStyle = {
+  fontFamily: "monospace",
+  maxHeight: "100vh",
+  overflow: "auto",
+  width: "100%",
+}
+
 function TabBox(props) {
   function displayParsedChords(chords) {
     return chords.map((chord) => (
@@ -15,7 +22,7 @@ function TabBox(props) {
   function TabArea() {
     if (props.selectedTabLoading === true) {
       return (
-        <Box sx={{ maxHeight: 600, width: "100%", overflow: "auto" }}>
+        <Box sx={{ maxHeight: "100vh", width: "100%", overflow: "scroll-vertical" }}>
           <Skeleton height={60} />
           <Skeleton height={60} />
           <Skeleton height={60} />
@@ -28,12 +35,7 @@ function TabBox(props) {
       if (props.song.parsed) {
         return (
           <List
-            style={{
-              fontFamily: "monospace",
-              maxHeight: 600,
-              overflow: "auto",
-              width: "100%",
-            }}
+            style={tabBoxStyle}
           >
             {displayParsedChords(props.song.parsed)}
           </List>
@@ -42,7 +44,7 @@ function TabBox(props) {
         return <Box>{"ERROR:" + props.error.toString()}</Box>;
       } else
         return (
-          <Box>
+          <Box style={tabBoxStyle} sx={{marginTop:"20vh"}}>
             select <Pageview /> on a tab to load it into this panel
           </Box>
         );
@@ -53,27 +55,27 @@ function TabBox(props) {
     if (props.selectedTabLoading === true) {
       return (
         <>
-          <Skeleton variant="H1" height={60} />
-          <Skeleton variant="H2" height={60} />
+          <Skeleton variant="H1" style={{marginTop:"5vh", padding:0}} height={60} />
+          <Skeleton variant="H2" style={{margin:0, padding:0}} height={60} />
         </>
       );
     } else {
       return (
         <>
-          <h1>{props.song.song_name}</h1>
-          <h2>{props.song.artist_name}</h2>
+          <h1 style={{marginTop:"5vh", padding:0}}>{props.song.song_name}</h1>
+          <h2 style={{margin:0, padding:0}}>{props.song.artist_name}</h2>
         </>
       );
     }
   }
 
   return (
-    <Box>
-      <Box>
-        <SongHeader></SongHeader>
-        <TabArea></TabArea>
-      </Box>
-    </Box>
+    
+      <>
+        <SongHeader sx={{marginTop:"50px"}}></SongHeader>
+        <TabArea style={{marginTop:"50px"}}></TabArea>
+      </>
+    
   );
 }
 

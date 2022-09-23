@@ -8,18 +8,39 @@ import SearchResults from "./SearchResults";
 import CircularProgress from '@mui/material/CircularProgress';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
-
 const style = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
+  horizontalAlign: "center",
+  alignItems: "center",
+  marginLeft: "auto",
+  marginRight: "auto",
+  top: "10vh",
+  width: "80vw",
+  height: "80vh",
+  bgcolor: "black",
   border: "2px solid #000",
   boxShadow: 24,
+  backgroundColor: "rgba(0, 0, 0, 1)",
   p: 4,
 };
+
+const span1 = {
+  marginLeft: "5px"
+}
+
+const fill = {
+  width: "100%",
+  height: "100%",
+  margins: "0px",
+  padding: "0px",
+  backgroundColor: "rgba(0, 0, 0, 1)",
+}
+
+const buttons = {
+  position: "absolute",
+  right: "15px",
+  top: "42px"
+}
 
 function TabBarToolBox(props) {
   const [open, setOpen] = React.useState(false);
@@ -70,16 +91,16 @@ function TabBarToolBox(props) {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box style={style}>
+          <Box style={fill}>
             <SearchBox
-              sx={{ width: "100%" }}
+              sx={{ width: "100vw" }}
               handleSearchButton={handleSearchButton}
             />
-            <Box sx={{height: 300, width: "100%"}}>
+            <Box style={fill}>
               {searchResults.length > 0 ? (
-                <SearchResults songs={searchResults} viewSong={props.viewSong} handleClose={handleClose}></SearchResults>
+                <SearchResults  style={fill} songs={searchResults} viewSong={props.viewSong} handleClose={handleClose}></SearchResults>
               ) : (
-                <>Search for a song</>
+                "Search for a song"
               )}
               {searchIsSearching? <CircularProgress/> : <></>}
             </Box>
@@ -89,11 +110,15 @@ function TabBarToolBox(props) {
   }
 
   return (
-    <Box sx= {{display: "flex" , flexDirection: "row", justifyContent: "flex-end"}}>
-      <AddCircleOutlineIcon onClick={handleOpen} />
-       <CloudDownloadIcon onClick={() => props.download(props.response)}></CloudDownloadIcon>
-      <BasicModal></BasicModal>
-    </Box>
+    <>
+      <Box style={buttons}>
+        <AddCircleOutlineIcon onClick={handleOpen} /><span style={span1}></span>
+        <CloudDownloadIcon onClick={() => props.download(props.response)}></CloudDownloadIcon>
+      </Box>
+      <Box sx={{marginTop:"10px"}}>
+        <BasicModal style={fill}></BasicModal>
+      </Box>
+    </>
   );
 }
 
