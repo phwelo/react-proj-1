@@ -124,14 +124,16 @@ function MainComponent(props) {
   return (
     <Box
       sx={{
-        height: "100%",
-        width: "100%",
+        height: "100vh",
+        width: "100vw",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "row",
         flexWrap: "nowrap",
         justifyContent: "space-between",
-        mt: 10,
-        p: 1,
+        mt: 0,
+        mb: 0,
+        p: 0,
       }}
     >
       <Box sx={{ display: "flex", flex: 2 }}>
